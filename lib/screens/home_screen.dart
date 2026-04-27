@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:router/entities/models.dart';
 
-class HomeScreen extends StatefulWidget {
-  String username = "";
+class HomeScreen extends StatelessWidget {
+  final String username;
 
-  HomeScreen({super.key, required this.username});
+  const HomeScreen({super.key, required this.username});
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     Product product1 = Product(name: 'Coca-cola', price: 2000.0, description: 'Bebida gaseosa', quantity: 10);
@@ -20,7 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Bienvenido, ${widget.username}',
+              'Bienvenido, $username',
             ),
             SizedBox(height: 20),
             Text('Producto: ${product1.name}'),
